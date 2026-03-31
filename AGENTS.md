@@ -42,6 +42,14 @@
 
 - Maintain `docs/error-log.md` throughout the project. Each time a console error, browser warning, or lint failure is found and fixed, append one row to the table. Never delete rows.
 
+## Events-specific rules
+
+- **Architecture rule:** This is an SPA. Never generate code that creates new HTML files or uses `window.location` for navigation.
+- **Code rule:** Use `addEventListener` exclusively. Never use `onclick`, `onsubmit`, or any `on*` property assignments.
+- **Code rule:** Use event delegation on container elements. Never add individual listeners in loops.
+- **Code rule:** Use `createElement` + `textContent` for DOM construction. Never use `innerHTML`.
+- **Code rule:** Use `classList` for visibility toggling. Never set `display` directly via `element.style`.
+
 ## My personal instructions
 
 _(Add your own here — what helps you learn, what you want the agent to always or never do, context about your project.)_

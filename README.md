@@ -1,17 +1,23 @@
-# Ready build
+# HAP's Robot ID Card App — Events Demo
 
-A project-agnostic professional JavaScript tooling harness. Clone it, install, and start building — linting, formatting, pre-commit hooks, CI, and a dev server are already configured.
+Companion demo for [HAP's Learning Lab: The Living Page](https://hap-events.netlify.app). This vanilla JS app shows the final state of what HAP builds across all six stations — a fully interactive Robot ID Card app.
+
+## What it demonstrates
+
+- **addEventListener + callbacks** — all interactivity uses `addEventListener` with named functions
+- **Event object** — every handler logs `event.type`, `event.target`, and `event.currentTarget`
+- **View switching + forms + preventDefault** — classList toggles views, form submit prevents reload
+- **Bubbling + delegation** — one listener on `#card-container` handles all card clicks, including dynamically added cards
+- **Safe DOM construction** — `createElement` + `textContent` throughout, no `innerHTML`
 
 ## Beginner's guide
 
-This starter gives you the same tooling setup used by professional JavaScript teams. Everything is pre-configured so you can focus on writing code instead of wiring up tools.
-
-**What's included:**
+This project uses the same professional tooling harness as HAP's other demos:
 
 - **Vite** — fast dev server with hot reload and production builds
 - **ESLint** — catches bugs and enforces consistent code style
-- **Prettier** — auto-formats your code so you never argue about semicolons
-- **Husky + lint-staged** — runs linting and formatting automatically before each commit
+- **Prettier** — auto-formats your code
+- **Husky + lint-staged** — runs linting and formatting before each commit
 - **Vitest** — fast unit testing framework
 - **GitHub Actions** — CI pipeline that runs lint checks on every push
 
@@ -37,21 +43,22 @@ After `npm install`, Husky sets up pre-commit hooks automatically. Running `npm 
 
 ## Project structure
 
-```
+```text
 .eslintrc.json          ESLint configuration
 .prettierrc             Prettier configuration
 .husky/pre-commit       Pre-commit hook (lint-staged)
 .github/workflows/      GitHub Actions CI workflow
-js/                     Your JavaScript files go here
+js/main.js              Event-driven SPA logic
+css/style.css           Styles with CSS custom properties (hsl)
 docs/tutorials/         Guides on linting, Husky, and GitHub Actions
-docs/reference/         ESLint rules, Prettier options, Vite/Vitest basics
-docs/a-good-agents-md.md   How to write an effective AGENTS.md
+docs/reference/         Event patterns, ESLint rules, Prettier options
 docs/error-log.md       Track errors and fixes during development
 vite.config.js          Vite configuration
 ```
 
 ## Documentation
 
+- [docs/reference/event-patterns.md](docs/reference/event-patterns.md) — event patterns demonstrated in this app
 - [docs/tutorials/why-linting.md](docs/tutorials/why-linting.md) — what linting is and why it matters
 - [docs/tutorials/how-husky-works.md](docs/tutorials/how-husky-works.md) — how pre-commit hooks work
 - [docs/tutorials/github-actions-101.md](docs/tutorials/github-actions-101.md) — understanding CI with GitHub Actions

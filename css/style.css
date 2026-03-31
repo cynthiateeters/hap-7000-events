@@ -1,4 +1,4 @@
-/* HAP's Robot ID Card — hap-7000.netlify.app */
+/* HAP's Robot ID Card App — Events Demo */
 
 /* ============================================================
    CSS Custom Properties
@@ -24,6 +24,15 @@
   --console-border: hsl(220, 13%, 20%);
   --btn-rest: hsl(211, 70%, 50%);
   --btn-rest-hover: hsl(211, 70%, 40%);
+  --btn-add: hsl(160, 60%, 40%);
+  --btn-add-hover: hsl(160, 60%, 30%);
+  --btn-back: hsl(220, 13%, 40%);
+  --btn-back-hover: hsl(220, 13%, 30%);
+  --note-bg: hsl(45, 80%, 95%);
+  --note-border: hsl(45, 60%, 80%);
+  --event-badge-bg: hsl(280, 50%, 30%);
+  --event-badge-text: hsl(280, 80%, 90%);
+  --form-border: hsl(220, 13%, 75%);
 }
 
 /* ============================================================
@@ -51,7 +60,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 2rem;
   color: var(--text-light);
 }
@@ -286,6 +294,168 @@ body {
 }
 
 /* ============================================================
+   Hidden utility (Station 3: view switching)
+   ============================================================ */
+.hidden {
+  display: none;
+}
+
+/* ============================================================
+   Card grid (multi-card layout)
+   ============================================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 960px;
+  width: 100%;
+}
+
+/* ============================================================
+   Clickable robot cards
+   ============================================================ */
+.robot-card {
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.robot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--shadow-color);
+}
+
+.robot-card:focus-visible {
+  outline: 3px solid var(--hap-orange);
+  outline-offset: 2px;
+}
+
+.robot-card--active {
+  cursor: default;
+}
+
+.robot-card--active:hover {
+  transform: none;
+  box-shadow: 0 10px 40px var(--shadow-color);
+}
+
+/* ============================================================
+   Detail view
+   ============================================================ */
+#detail-view {
+  max-width: 480px;
+  width: 100%;
+}
+
+#detail-content {
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   Notes form (Station 3: form + preventDefault)
+   ============================================================ */
+.notes-form {
+  margin-bottom: 1rem;
+}
+
+.notes-form label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-row input[type="text"] {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--form-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+}
+
+.form-row input[type="text"]:focus {
+  outline: none;
+  border-color: var(--hap-orange);
+}
+
+/* ============================================================
+   Note items
+   ============================================================ */
+.note-item {
+  background-color: var(--note-bg);
+  border-left: 3px solid var(--note-border);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+/* ============================================================
+   Add and back buttons
+   ============================================================ */
+.btn-add {
+  background-color: var(--btn-add);
+  color: var(--text-light);
+  margin-top: 1.5rem;
+}
+
+.btn-add:hover {
+  background-color: var(--btn-add-hover);
+}
+
+.btn-back {
+  background-color: var(--btn-back);
+  color: var(--text-light);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.btn-back:hover {
+  background-color: var(--btn-back-hover);
+}
+
+/* ============================================================
+   Console event type badge
+   ============================================================ */
+.console-event-type {
+  display: inline-block;
+  background-color: var(--event-badge-bg);
+  color: var(--event-badge-text);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Main layout
+   ============================================================ */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ============================================================
+   Console — wider for multi-card layout
+   ============================================================ */
+.console-section {
+  max-width: 960px;
+}
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 480px) {
@@ -298,5 +468,13 @@ body {
   .card-actions {
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
   }
 }

@@ -1,6 +1,7 @@
 {
-  "name": "ready-build",
+  "name": "hap-7000-events",
   "version": "1.0.0",
+  "description": "HAP's Robot ID Card App — Events Demo. Companion demo for HAP's Learning Lab: The Living Page.",
   "type": "module",
   "scripts": {
     "dev": "vite",

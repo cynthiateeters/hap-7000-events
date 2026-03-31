@@ -1,121 +1,157 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HAP's Robot ID Card</title>
-    <meta
-      name="description"
-      content="HAP-7000 Robot ID Card — see variables, operators, and helper functions in action."
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <!--
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAP's Robot ID Card App — Events Demo</title>
+  <meta name="description"
+    content="Interactive Robot ID Card app demonstrating addEventListener, delegation, view switching, and forms." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <!--
     HAP Educational Content © 2026 Cynthia Teeters. All rights reserved.
     HyBit A. ProtoBot (HAP) character and the apprentice learning methodology are proprietary educational innovations.
     -->
 
-    <!-- Page header -->
-    <header class="page-header">
-      <h1>HAP's Robot ID Card Demo</h1>
-      <p>See variables, operators, and helper functions in action!</p>
-    </header>
+  <!-- Page header -->
+  <header class="page-header">
+    <h1>HAP's Robot ID Card App — Events Demo</h1>
+    <p>addEventListener, delegation, view switching, and forms in action!</p>
+  </header>
 
-    <!-- Robot ID Card -->
-    <main class="robot-card">
-      <!-- Card header -->
-      <div class="card-header">
-        <span class="robot-icon" aria-hidden="true">🤖</span>
-        <h2>Robot ID Card</h2>
-      </div>
-
-      <!-- Identity section (const values) -->
-      <section class="card-section">
-        <h3>Identity</h3>
-        <div class="info-row">
-          <span class="label"><span aria-hidden="true">📛</span> Name</span>
-          <span class="value" id="robot-name">---</span>
-        </div>
-        <div class="info-row">
-          <span class="label"><span aria-hidden="true">🔧</span> Model</span>
-          <span class="value" id="robot-model">---</span>
-        </div>
-        <div class="info-row">
-          <span class="label"><span aria-hidden="true">📅</span> Created</span>
-          <span class="value" id="robot-year">---</span>
-        </div>
-      </section>
-
-      <!-- Status section (let values) -->
-      <section class="card-section">
-        <h3>Current Status</h3>
-        <div class="info-row">
-          <span class="label"><span aria-hidden="true">⚡</span> Energy</span>
-          <span class="value"><span id="energy-level">---</span>/100</span>
-        </div>
-        <div class="energy-container">
-          <div class="energy-bar-track">
-            <div
-              class="energy-bar-fill"
-              id="energy-bar"
-              role="progressbar"
-              aria-label="Energy level"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="100"
-              style="width: 0%"
-            ></div>
+  <main>
+    <!-- Card list view (summary view) -->
+    <section id="card-list-view">
+      <div id="card-container" class="card-grid">
+        <!-- HAP-7000 -->
+        <div class="robot-card" data-robot-id="hap-7000" tabindex="0" role="button"
+          aria-label="View details for HyBit A. ProtoBot">
+          <div class="card-header">
+            <span class="robot-icon" aria-hidden="true">🤖</span>
+            <h2>Robot ID Card</h2>
           </div>
+          <section class="card-section">
+            <h3>Identity</h3>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">📛</span> Name</span>
+              <span class="value">HyBit A. ProtoBot</span>
+            </div>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">🔧</span> Model</span>
+              <span class="value">HAP-7000</span>
+            </div>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">📅</span> Created</span>
+              <span class="value">2024</span>
+            </div>
+          </section>
+          <section class="card-section">
+            <h3>Personality</h3>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">✨</span> Trait</span>
+              <span class="value">Curious apprentice</span>
+            </div>
+          </section>
         </div>
-        <div class="info-row">
-          <span class="label"
-            ><span aria-hidden="true">✓</span> Tasks Done</span
-          >
-          <span class="value" id="tasks-done">---</span>
-        </div>
-        <div class="status-row">
-          <span class="icon" aria-hidden="true">📊</span>
-          <span class="text" id="status-message">Loading...</span>
-        </div>
-      </section>
 
-      <!-- Dynamic section (helper functions) -->
-      <section class="card-section">
-        <h3>Today's Stats</h3>
-        <div class="info-row">
-          <span class="label"
-            ><span aria-hidden="true">🎲</span> Challenge Level</span
-          >
-          <span class="value" id="challenge-number">?</span>
+        <!-- GRACE-9000 -->
+        <div class="robot-card" data-robot-id="grace-9000" tabindex="0" role="button"
+          aria-label="View details for Grace Hopper (Retired)">
+          <div class="card-header">
+            <span class="robot-icon" aria-hidden="true">🤖</span>
+            <h2>Robot ID Card</h2>
+          </div>
+          <section class="card-section">
+            <h3>Identity</h3>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">📛</span> Name</span>
+              <span class="value">Grace Hopper</span>
+            </div>
+            <divcommissioned class="info-row">
+              <span class="label"><span aria-hidden="true">🔧</span> Model</span>
+              <span class="value">GRACE-9000 (Retired)</span>
+            </divcommissioned>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">📅</span> Commissioned</span>
+              <span class="value">1944</span>
+            </div>
+          </section>
+          <section class="card-section">
+            <h3>Personality</h3>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">✨</span> Trait</span>
+              <span class="value">Precise and formal</span>
+            </div>
+          </section>
         </div>
-        <div class="info-row">
-          <span class="label"><span aria-hidden="true">😊</span> Mood</span>
-          <span class="value" id="current-mood">---</span>
-        </div>
-      </section>
 
-      <!-- Action buttons -->
-      <div class="card-actions">
-        <button class="btn btn-task" id="btn-task" type="button">
-          Complete Task
-        </button>
-        <button class="btn btn-rest" id="btn-rest" type="button">Rest</button>
+        <!-- PROF-T-5000 -->
+        <div class="robot-card" data-robot-id="prof-t-5000" tabindex="0" role="button"
+          aria-label="View details for Prof. Teeters">
+          <div class="card-header">
+            <span class="robot-icon" aria-hidden="true">🤖</span>
+            <h2>Robot ID Card</h2>
+          </div>
+          <section class="card-section">
+            <h3>Identity</h3>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">📛</span> Name</span>
+              <span class="value">Prof. Teeters"</span>
+            </div>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">🔧</span> Model</span>
+              <span class="value">PROF-T-5000</span>
+            </div>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">📅</span> Hired</span>
+              <span class="value">2018</span>
+            </div>
+          </section>
+          <section class="card-section">
+            <h3>Personality</h3>
+            <div class="info-row">
+              <span class="label"><span aria-hidden="true">✨</span> Trait</span>
+              <span class="value">Calm mentor</span>
+            </div>
+          </section>
+        </div>
       </div>
-    </main>
 
-    <!-- Console output -->
-    <aside class="console-section">
-      <h3>Console Output</h3>
-      <div
-        class="console-output"
-        id="console-output"
-        role="log"
-        aria-label="Console output"
-        aria-live="polite"
-      ></div>
-    </aside>
+      <button class="btn btn-add" id="add-card-btn" type="button">
+        Add New Robot
+      </button>
+    </section>
 
-    <script type="module" src="/js/main.js"></script>
-  </body>
+    <!-- Detail view (hidden by default) -->
+    <section id="detail-view" class="hidden">
+      <div id="detail-content"></div>
+
+      <form id="notes-form" class="notes-form">
+        <label for="note-input">Add a note about this robot</label>
+        <div class="form-row">
+          <input type="text" id="note-input" placeholder="Type a note..." required autocomplete="off" />
+          <button type="submit" class="btn btn-task">Save Note</button>
+        </div>
+      </form>
+
+      <div id="notes-list"></div>
+
+      <button class="btn btn-back" id="back-btn" type="button">
+        Back to All Robots
+      </button>
+    </section>
+  </main>
+
+  <!-- Console output -->
+  <aside class="console-section">
+    <h3>Console Output</h3>
+    <div class="console-output" id="console-output" role="log" aria-label="Console output" aria-live="polite"></div>
+  </aside>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+
 </html>
