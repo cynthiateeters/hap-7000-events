@@ -1,4 +1,4 @@
-# HAP's Robot ID Card App — Events Demo
+# [HAP's Robot ID Card App — Events Demo](https://hap-7000-events.netlify.app/)
 
 Companion demo for [HAP's Learning Lab: The Living Page](https://hap-events.netlify.app). This vanilla JS app shows the final state of what HAP builds across all six stations — a fully interactive Robot ID Card app.
 
