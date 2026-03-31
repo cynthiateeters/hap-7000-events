@@ -6,18 +6,21 @@ const robots = {
     name: 'HyBit A. ProtoBot',
     model: 'HAP-7000',
     commissioned: 2024,
+    commissionedLabel: 'Created',
     trait: 'Curious apprentice',
   },
-  'grace-9000': {
-    name: 'Grace Hopper (Retired)',
-    model: 'GRACE-9000',
+  'GRACE-001': {
+    name: 'Grace Hopper',
+    model: 'GRACE-001 ',
     commissioned: 1944,
+    commissionedLabel: 'Commissioned',
     trait: 'Precise and formal',
   },
   'prof-t-5000': {
     name: 'Prof. Teeters',
     model: 'PROF-T-5000',
-    commissioned: 218,
+    commissioned: 2018,
+    commissionedLabel: 'Hired',
     trait: 'Calm mentor',
   },
 };
@@ -103,7 +106,11 @@ function createCardElement(id, robot) {
   const rows = [
     ['\u{1F4DB}', 'Name', robot.name],
     ['\u{1F527}', 'Model', robot.model],
-    ['\u{1F4C5}', 'Created', String(robot.created)],
+    [
+      '\u{1F4C5}',
+      robot.commissionedLabel || 'Created',
+      String(robot.commissioned),
+    ],
   ];
 
   for (const [emoji, label, value] of rows) {
@@ -193,7 +200,11 @@ function showDetailView(robotId) {
   const details = [
     ['\u{1F4DB}', 'Name', robot.name],
     ['\u{1F527}', 'Model', robot.model],
-    ['\u{1F4C5}', 'Created', String(robot.created)],
+    [
+      '\u{1F4C5}',
+      robot.commissionedLabel || 'Created',
+      String(robot.commissioned),
+    ],
     ['\u2728', 'Trait', robot.trait],
   ];
 
