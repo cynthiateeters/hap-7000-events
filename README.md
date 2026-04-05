@@ -73,4 +73,4 @@ Contributions are welcome. Open an issue or submit a pull request.
 
 ## License
 
-MIT License - Cynthia Teeters
+MIT License 2026 - Cynthia Teeters
